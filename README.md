@@ -64,8 +64,6 @@ Signed-By: /etc/apt/keyrings/docker.asc
  - none
  - overlay
  - macvlan
- - macvlan
- - macvlan
 2. 更换容器软件源
 - [阿里源](https://developer.aliyun.com/mirror/)
 - [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
