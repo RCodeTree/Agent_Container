@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config *)",
+      "Bash(git -C /project status)",
+      "Bash(git -C /project diff --stat)"
+    ]
+  }
+}

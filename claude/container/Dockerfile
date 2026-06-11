@@ -1,3 +1,4 @@
+# 基础 Node.js 镜像
 FROM node:26-slim
 
 # 清除旧版源配置，并写入清华源 (DEB822 格式)
