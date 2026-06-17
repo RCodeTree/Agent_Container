@@ -26,6 +26,9 @@ RUN apt-get update && apt-get install -y curl git vim iproute2 && \
 # 通过 npm 全局安装 Claude Code CLI
 RUN npm install -g @anthropic-ai/claude-code@latest
 
+# 通过 npm 全局安装 Open Claw CLI
+RUN npm install -g openclaw@latest
+
 # 设置工作目录
 WORKDIR /project
 
