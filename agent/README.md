@@ -25,9 +25,9 @@
 1. 引入基础镜像
 2. 更换镜像软件源 - 加速镜像构建
     - [清华源](https://mirrors.tuna.tsinghua.edu.cn/)(推荐)
-3. 安装 Claude-CLI 必要依赖
+3. 安装 Claude-CLI 和 OpenClaw-CLI 必要依赖
 4. npm/pnpm/bun 拉取 @anthropic-ai/claude-code@latest
-5. npm/pnpm/bun 拉取 @anthropic-ai/open-claw-cli@latest
+5. npm/pnpm/bun 拉取 openclaw@latest
 6. 设置工作目录
 7. 保持容器运行的默认指令
     - ["tail", "-f", "/dev/null"]
