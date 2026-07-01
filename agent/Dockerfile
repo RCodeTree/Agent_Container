@@ -29,6 +29,9 @@ RUN npm install -g @anthropic-ai/claude-code@latest
 # 通过 npm 全局安装 Open Claw CLI
 RUN npm install -g openclaw@latest
 
+# 通过 npm 全局安装 Xiaomi MiMo Code
+RUN npm install -g @mimo-ai/cli
+
 # 设置工作目录
 WORKDIR /project
 
