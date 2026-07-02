@@ -46,6 +46,20 @@ docker run -itd --name container-name -v $(pwd):your-workdir --network bridge cl
 
 # 隐性指定网络模式为 bridge 模式
 docker run -itd --name container-name -v $(pwd):your-workdir claude-cli-env
+
+# 显性指定网络模式为 bridge 模式，并直接接入Claude CLI，从现有安装中迁移到 DeepSeek
+docker run -itd --name container-name \
+-v $(pwd):your-workdir \
+--network bridge \
+-e ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic \
+-e ANTHROPIC_AUTH_TOKEN=<your DeepSeek API Key> \
+-e ANTHROPIC_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash \
+-e CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash \
+-e CLAUDE_CODE_EFFORT_LEVEL=max \
+claude-cli-env;
 ```
 1. `Claude-CLI`
     - 国内不能直接访问Claude
@@ -77,6 +91,20 @@ docker run -itd --name container-name -v $(pwd):your-workdir --network host clau
 
 # 隐性指定网络模式为 host 模式
 docker run -itd --name container-name -v $(pwd):your-workdir claude-cli-env
+
+# 显性指定网络模式为 host 模式，并直接接入Claude CLI，从现有安装中迁移到 DeepSeek
+docker run -itd --name container-name \
+-v $(pwd):your-workdir \
+--network host \
+-e ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic \
+-e ANTHROPIC_AUTH_TOKEN=<your DeepSeek API Key> \
+-e ANTHROPIC_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m] \
+-e ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash \
+-e CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash \
+-e CLAUDE_CODE_EFFORT_LEVEL=max \
+claude-cli-env;
 ```
 1. `Claude-CLI`
    - 国内不能直接访问Claude

@@ -2,11 +2,12 @@
 
 ## 项目介绍
 - 这是一个基于Docker的容器以及Docker基础的项目，用于个人记录和分享。
-- 物理机系统：Ubuntu 26.04
+- 物理机系统：Ubuntu 26.04 / Windows 10 / Windows 11
 - docker CLI 版本：Docker version 29.5.2, build 79eb04c
 - 镜像：centos:8
 **docker软件源参考链接：** [Docker 官方文档](https://docs.docker.com/)  或者  [阿里源](https://developer.aliyun.com/mirror)  或者  [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
 #### 个人配置案例(仅供参考)
+`Linux：`
 ``` bash
 路径：/etc/apt/sources.list.d/docker.sources
 
@@ -17,6 +18,21 @@ Components: stable
 Architectures: amd64
 Signed-By: /etc/apt/keyrings/docker.asc
 ```
+`Windows：`
+###### 注：[wsl官方链接](https://learn.microsoft.com/en-us/windows/wsl/install) 、 [Docker官网](https://docker.com)
+``` powershell
+# 对于 Windows 的 Docker 安装，就方便一些，但是由于 Docker 的运行要基于 Linux 内核，因此我们需要用到 Windows 的 WSL ，按照一下步骤
+
+# 控制面板 ---->  程序 ----> 启动或关闭 Windows 功能 ----> 一次勾选 容器、适用于 Linux 的 Windows 子系统、虚拟机平台 ----> 然后等待重启电脑即可
+
+# 启动终端管理员(快捷键：win + x)安装(更新WSL)
+wsl --update
+
+# 然后到Docker官网下载安装包即可
+
+```
+**备注：** 下方配置多是与 Linux 相关，如若是 Windows ，则无需关注，按上方操作，docker命令两个平台均可使用
+
 --- 
 
 ## 物理机配置
