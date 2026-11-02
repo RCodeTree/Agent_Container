@@ -6,18 +6,66 @@
 - docker CLI 版本：Docker version 29.5.2, build 79eb04c
 - 镜像：centos:8
 **docker软件源参考链接：** [Docker 官方文档](https://docs.docker.com/)  或者  [阿里源](https://developer.aliyun.com/mirror)  或者  [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
-#### 个人配置案例(仅供参考)
-`Linux：`
+#### 个人配置与安装案例(仅供参考)
+`Linux(Ubuntu)：`
 ``` bash
-路径：/etc/apt/sources.list.d/docker.sources
+# 路径：/etc/apt/sources.list.d/docker.sources
 
+# 安全地创建存放 GPG 密钥的专用目录（/etc/apt/keyrings）。它比传统的 mkdir 更安全、更专业 --- -m 0755 (--mode=0755)：设置目录的访问权限为 755  ---  -d (--directory)：将所有参数视作目录名称，并创建指定目录（如果父目录不存在也会一并创建，类似于 mkdir -p）
+sudo install -m 0755 -d /etc/apt/keyrings
+
+# 下载密钥并转换为 asc 格式存储
+curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.asc
+
+# 赋予所有用户读取密钥的权限
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# 配置 deb 源
 Types: deb
 URIs: https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu
 Suites: noble
 Components: stable
 Architectures: amd64
 Signed-By: /etc/apt/keyrings/docker.asc
+
+# 安装 docker 所有组件
+sudo apt-get install -y \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-compose-plugin
 ```
+`Linux(Debian)：`
+``` bash
+# 路径：/etc/apt/sources.list.d/docker.sources
+
+# 安全地创建存放 GPG 密钥的专用目录（/etc/apt/keyrings）。它比传统的 mkdir 更安全、更专业 --- -m 0755 (--mode=0755)：设置目录的访问权限为 755  ---  -d (--directory)：将所有参数视作目录名称，并创建指定目录（如果父目录不存在也会一并创建，类似于 mkdir -p）
+sudo install -m 0755 -d /etc/apt/keyrings
+
+# 下载密钥并转换为 gpg 格式存储
+curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# 赋予所有用户读取密钥的权限
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# 配置 deb 源
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian
+Suites: trixie
+Components: stable
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/docker.gpg
+
+# 安装 docker 所有组件
+sudo apt-get install -y \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-compose-plugin
+```
+
 `Windows：`
 ###### 注：[wsl官方链接](https://learn.microsoft.com/en-us/windows/wsl/install) 、 [Docker官网](https://docker.com)
 ``` powershell
