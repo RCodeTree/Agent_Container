@@ -76,7 +76,7 @@ sudo apt-get install -y \
 # 启动终端管理员(快捷键：win + x)安装(更新WSL)
 wsl --update
 
-# 然后到Docker官网下载安装包即可
+# 然后到Docker官网下载安装包即可或者在安装好相应的Linux发行版后，配置软件源(deb 或 yum)
 
 ```
 **备注：** 下方配置多是与 Linux 相关，如若是 Windows ，则无需关注，按上方操作，docker命令两个平台均可使用
